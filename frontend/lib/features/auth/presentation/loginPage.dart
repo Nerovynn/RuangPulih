@@ -10,7 +10,7 @@ class RuangPulihApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ruang Peler',
+      title: 'Ruang Pulih',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'PlusJakartaSans',
@@ -65,11 +65,11 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Brand: Teks + Gambar di samping
+              // ── Brand ──
               _buildBrand(),
-              const SizedBox(height: 40),
+              const SizedBox(height: 32),
 
-              // Title
+              // ── Title ──
               const Text(
                 'Selamat datang kembali',
                 style: TextStyle(
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 28),
 
-              // Email Field
+              // ── Email Field ──
               _buildFieldLabel('Email'),
               const SizedBox(height: 6),
               _buildTextField(
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 14),
 
-              // Password Field
+              // ── Password Field ──
               _buildFieldLabel('Password'),
               const SizedBox(height: 6),
               _buildPasswordField(),
@@ -126,15 +126,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 8),
 
-              // Login Button
+              // ── Login Button ──
               _buildPrimaryButton(label: 'Masuk', onTap: () {}),
               const SizedBox(height: 22),
 
-              // Divider
+              // ── Divider ──
               _buildDivider(),
               const SizedBox(height: 22),
 
-              // Social Buttons
+              // ── Social Buttons ──
               _buildSocialButton(
                 label: 'Lanjutkan dengan Google',
                 iconAsset: 'G',
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 32),
 
-              // Footer
+              // ── Footer ──
               _buildFooter(),
             ],
           ),
@@ -157,50 +157,43 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Brand Widget - Teks + Gambar di samping (ukuran seimbang)
+  // ── Brand Widget ──────────────────────────────────────────
   Widget _buildBrand() {
     return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
-          // Teks Ruang Pulih + Tagline
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text(
-                'Ruang Pulih',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.text1,
-                  letterSpacing: -0.8,
-                  height: 1.0,
-                ),
-              ),
-              const SizedBox(height: 4),
-              const Text(
-                'Tempatmu untuk pulih & bertumbuh',
-                style: TextStyle(fontSize: 12, color: AppColors.text3),
-              ),
-            ],
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+              color: AppColors.hero,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: const Center(
+              child: Text('🌿', style: TextStyle(fontSize: 24)),
+            ),
           ),
-
-          const SizedBox(width: 10),
-
-          // Gambar Ilustrasi
-          Image.asset(
-            'assets/image/Screenshot_2026-04-06_231128-removebg-preview',
-            height: 80,
-            width: 80,
+          const SizedBox(height: 12),
+          const Text(
+            'Ruang Pulih',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              color: AppColors.text1,
+              letterSpacing: -0.4,
+            ),
+          ),
+          const SizedBox(height: 4),
+          const Text(
+            'Tempatmu untuk pulih & bertumbuh',
+            style: TextStyle(fontSize: 12, color: AppColors.text3),
           ),
         ],
       ),
     );
   }
 
-  // Field Label
+  // ── Field Label ───────────────────────────────────────────
   Widget _buildFieldLabel(String label) {
     return Text(
       label,
@@ -213,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Text Field
+  // ── Text Field ────────────────────────────────────────────
   Widget _buildTextField({
     required TextEditingController controller,
     required String hint,
@@ -242,7 +235,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Password Field
+  // ── Password Field ────────────────────────────────────────
   Widget _buildPasswordField() {
     return Container(
       height: 52,
@@ -280,7 +273,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Primary Button
+  // ── Primary Button ────────────────────────────────────────
   Widget _buildPrimaryButton({
     required String label,
     required VoidCallback onTap,
@@ -310,7 +303,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Divider
+  // ── Divider ───────────────────────────────────────────────
   Widget _buildDivider() {
     return Row(
       children: [
@@ -327,7 +320,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Social Button
+  // ── Social Button ─────────────────────────────────────────
   Widget _buildSocialButton({
     required String label,
     required String iconAsset,
@@ -372,7 +365,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Footer
+  // ── Footer ────────────────────────────────────────────────
   Widget _buildFooter() {
     return Center(
       child: RichText(
