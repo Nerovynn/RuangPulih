@@ -34,6 +34,9 @@ import { HabitsModule } from './habits/habits.module';
         database: configService.get<string>('DATABASE_NAME'),
         autoLoadEntities: true,
         synchronize: true, // Sebaiknya dimatikan di produksi
+        ssl: {
+          rejectUnauthorized: false, // Penting untuk Neon.tech/Cloud DB
+        },
       }),
     }),
     UsersModule,

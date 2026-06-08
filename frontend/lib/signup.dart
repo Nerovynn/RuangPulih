@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'api_service.dart';
 import 'dashboard.dart';
 
 // Warna utama
@@ -76,7 +77,7 @@ class _SignupPageState extends State<SignupPage> {
 
       try {
         final response = await http.post(
-          Uri.parse('http://10.0.2.2:3000/auth/register'),
+          Uri.parse('${ApiService.baseUrl}/auth/register'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({
             'email': _emailCtrl.text.trim(),

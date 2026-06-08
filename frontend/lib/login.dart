@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'api_service.dart';
 import 'signup.dart';
 import 'dashboard.dart';
 
@@ -59,9 +60,8 @@ class _LoginPageState extends State<LoginPage> {
       setState(() => _isLoading = true);
       
       try {
-        // Alamat localhost untuk Chrome. Jika di emulator Android gunakan 10.0.2.2
         final response = await http.post(
-          Uri.parse('http://10.0.2.2:3000/auth/login'),
+          Uri.parse('${ApiService.baseUrl}/auth/login'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({
             'email': _emailCtrl.text.trim(),
